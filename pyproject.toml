@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "gmail-reading"
+version = "0.1.0"
+description = ""
+authors = ["Shadi Boomi <shadi.boomi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+gmail-reading = "gmail_reading.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typer = { extras = ["all"], version = "^0.4.0" }
+python-dotenv = "^0.19.2"
+pandas = "^1.4.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+mypy = "^0.931"
+black = "^22.1.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
