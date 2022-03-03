@@ -20,3 +20,8 @@ Commands:
   init             Asks for credentials
 
 ```
+
+# TODO
+
+- Implement a widget that takes every mail from a DB and makes stats out of it
+- Possibly deletes junkish mails by checking stats

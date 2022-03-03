@@ -48,8 +48,7 @@ def init():
     typer.echo("Gmail IMAP reader")
     env_file = Path(".env")
     if env_file.exists():
-        typer.echo("Local environment already confirmed. Overwrite? (Y/n)")
-        is_overwritten = input() == "Y"
+        is_overwritten = typer.confirm("Local environment already confirmed. Overwrite?")
         if is_overwritten:
             env_file.unlink()
             typer.echo("Previous .env deleted...")
@@ -60,11 +59,9 @@ def init():
         typer.echo("Local environment not initialized. Initializing...")
 
     creds = {}
-    typer.echo("Selected Google...")
-    typer.echo("Enter your mail address.")
-    creds["USER_EMAIL_ADDRESS"] = input()
-    typer.echo("Enter your Gmail password or your 16 character auth code.")
-    creds["USER_PASSWORD"] = input()
+
+    creds["USER_EMAIL_ADDRESS"] = typer.prompt("Enter your mail address.")
+    creds["USER_PASSWORD"] = typer.prompt("Enter your Gmail password or your 16 character auth code.")
     typer.echo("Saving in local environment...")
     with open(env_file, "w") as env_f:
         for k, v in creds.items():
